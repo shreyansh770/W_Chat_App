@@ -1,0 +1,34 @@
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #A181B3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.main-body{
+
+    height : 70vh;
+    width: 95%;
+    margin-top: 8rem
+}
+
+.left-menu{
+
+    background-color: #35244D;
+    height: 100%;
+    width: 5%
+}
+
+/* contacts */
+.con-container{
+    background-color: #402E58;
+    height: 100%;
+    width: 20%
+}
+
+
+
