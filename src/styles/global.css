@@ -1,16 +1,22 @@
-
-
 body{
     margin: 0;
     padding: 0;
     background: #A181B3;
+}
+
+#root{
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
+
+.main {
+    display: flex;
+}
 
 .main-body{
-
     height : 70vh;
     width: 95%;
     margin-top: 8rem
@@ -27,8 +33,94 @@ body{
 .con-container{
     background-color: #402E58;
     height: 100%;
-    width: 20%
+    width: 25%
 }
 
+
+/* Chatbox */
+.chat-box{
+    background-color: white;
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-user{
+    width: 100%;
+    height: 15%;
+    border-bottom: 0.25px solid #F8F8F8 ;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-display{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user-pic{
+    height: 60%;
+    width: 10%;
+    border: 1px solid green;
+    border-radius: 50%;
+    margin-left:2rem ;
+}
+
+.user-online-info{
+    height: 100%;
+    width: 80%;
+    margin-left:2rem ;
+}
+
+.user-online-info >p{
+   margin-top: 0px;
+}
+
+.user-box{
+    width: 50%;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.chat-message{
+    width: 100%;
+    height: 80%;
+    border-bottom:0.25px solid #F8F8F8 ;
+}
+
+.send-message{
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+
+.send-file{
+   height: 100%;
+   width: 5%;
+   border: 1px solid red;
+   margin-left: 2rem;
+}
+
+.message-box{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-box > input{
+    height: 80%;
+    width: 80%;
+    border:0.25px solid #F8F8F8 ;
+    outline: none;
+}
+
+.btn-send{
+
+}
 
 

@@ -1,5 +1,6 @@
 import LeftMenu from './LeftMenu'
 import Contacts from './Contacts'
+import Chatbox from './Chatbox'
 
 const App = () => {
   return (
@@ -7,6 +8,7 @@ const App = () => {
        <div className="main main-body">
          <LeftMenu/>
           <Contacts/>
+          <Chatbox/>
        </div>
     </>
   )
