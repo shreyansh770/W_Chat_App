@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react"
-import { io } from 'socket.io-client'
 
-const socket = io('http://localhost:3000')
-const Chatbox = () => {
+
+
+const Chatbox = ({socket , people,room}) => {
     const [messages, setMessages] = useState([])
     const [mts , setMts] = useState("")
 
@@ -16,10 +16,11 @@ const Chatbox = () => {
           return ()=>{
              socket.off('message',handleMessage)
           }
-    },[handleMessage])
+    },[socket , handleMessage])
 
     const sendMessage = () => {
-        socket.emit('message', mts)
+        const data = {room : room , msg:mts}
+        socket.emit('message', data)
     }
 
     return (
@@ -30,7 +31,7 @@ const Chatbox = () => {
 
                     </div>
                     <div className="user-online-info">
-                        <h4>Sam Sullek</h4>
+                        <h4>{people}</h4>
                         <p>Online</p>
                     </div>
                 </div>
@@ -41,7 +42,7 @@ const Chatbox = () => {
 
             <div className="chat-message">
                 {messages.map((msg, idx) => {
-                    return <p key={idx}>{msg}</p>
+                    return <p key={idx}>{msg.msg}</p>
                 })}
             </div>
 

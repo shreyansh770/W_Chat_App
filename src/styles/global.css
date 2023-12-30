@@ -33,9 +33,88 @@ body{
 .con-container{
     background-color: #402E58;
     height: 100%;
-    width: 25%
+    width: 25%;
+    display: flex;
+    flex-direction: column;
 }
 
+.con-search{
+    width: 100%;
+    height: 10%;
+    border-bottom: 1px solid #35244D;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-box{
+    width: 85%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box > input{
+    width: 85%;
+    height: 90%;
+    border: none;
+    outline: none;
+    background-color: #35244D;
+    color: white;
+}
+
+.add-contact{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.contacts{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.con-user{
+   width: 90%;
+   height: 15%;
+   margin-top: 1rem;
+   display: flex;
+}
+
+.con-user-pp{
+     height: 90%;
+     width: 18%;
+     border: 1px solid red;
+     border-radius: 60%;
+}
+.con-user-msg{
+    height: 80%;
+    width: 80%;
+    margin-left: 0.5rem;
+}
+
+.con-user-msg > h3{
+    color : white;
+    margin: 0;
+    margin-top: 0.6rem;
+}
+
+.con-user-msg > h3:hover{
+    cursor: pointer;
+}
+
+.con-user-msg > p{
+    color : #66557E;
+    margin-top: 0.6rem;
+}
 
 /* Chatbox */
 .chat-box{
@@ -44,6 +123,7 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
+    font-family: monospace;
 }
 
 .chat-user{
