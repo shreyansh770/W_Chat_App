@@ -20,6 +20,7 @@ const Chatbox = ({socket , people,room}) => {
 
     const sendMessage = () => {
         const data = {room : room , msg:mts}
+        console.log(room);
         socket.emit('message', data)
     }
 

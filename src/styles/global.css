@@ -26,7 +26,78 @@ body{
 
     background-color: #35244D;
     height: 100%;
-    width: 5%
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.upper-icons{
+    width: 100%;
+    height: 80%;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-icons{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-pp{
+    width: 80%;
+    height: 13%;
+    margin-top: 2rem;
+}
+
+.my-pp > svg{
+    width: 100%;
+    height: 80%;
+    color: #6D5A86;
+}
+
+.my-messages{
+    width: 80%;
+    height: 13%;
+    margin-top: 2rem;
+}
+
+.my-messages>svg{
+    width: 100%;
+    height: 80%;
+    color: #6D5A86;
+}
+
+.createRoom{
+    width: 80%;
+    height: 13%;
+    margin-top: 2rem;
+}
+
+.createRoom>svg{
+    width: 100%;
+    height: 70%;
+    color: #6D5A86;
+}
+
+.leave-app{
+    width: 80%;
+    height: 50%;
+}
+
+.leave-app >svg{
+    width: 100%;
+    height: 80%;
+    color: #6D5A86;
+}
+
+.left-menu :hover{
+    color: white;
 }
 
 /* contacts */

@@ -7,15 +7,22 @@ import { io } from 'socket.io-client'
 */
 
 
-const Contacts = ({socket,setPeople,setRoom}) => {
+const Contacts = ({socket,setPeople,setRoom,currRoom}) => {
 
 
 
   const handlePeopleToTalk = (e)=>{
+
+    if(currRoom!=""){
+       socket.emit("leave_conversation",currRoom)
+    }
+
     let user_name = e.target.innerHTML
+
     setPeople (user_name)
 
     const room = "W"+"_"+user_name
+
     socket.emit("createroom",room)
     setRoom(room)
   }
