@@ -20,7 +20,6 @@ const Chatbox = ({socket , people,room}) => {
 
     const sendMessage = () => {
         const data = {room : room , msg:mts}
-        console.log(room);
         socket.emit('message', data)
     }
 
@@ -33,7 +32,7 @@ const Chatbox = ({socket , people,room}) => {
                     </div>
                     <div className="user-online-info">
                         <h4>{people}</h4>
-                        <p>Online</p>
+                        <p>--</p>
                     </div>
                 </div>
                 <div className="user-box">

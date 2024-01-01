@@ -6,30 +6,25 @@ import { io } from 'socket.io-client'
 import {  useNavigate } from 'react-router-dom'
 
 const socket = io('http://localhost:3000')
-const Body = ({ userName }) => {
+const Body = ({ userName,avatar }) => {
 
   const navigate = useNavigate()
-
-  useEffect(()=>{
-
-      if(userName==""){
-        navigate("/enterchat")
-        return
-      } 
-    
-  },[])
-
   const [people, setPeople] = useState("");
   const [room, setRoom] = useState("")
 
 
-
+  useEffect(()=>{
+      if(userName==""){
+        navigate("/enterchat")
+        return
+      } 
+  },[])
   return (
     <>
       
 
         <div className="main main-body">
-          <LeftMenu />
+          <LeftMenu avatar={avatar}/>
           <Contacts socket={socket} setPeople={setPeople} setRoom={setRoom} currRoom={room} />
           <Chatbox socket={socket} people={people} room={room} />
         </div>

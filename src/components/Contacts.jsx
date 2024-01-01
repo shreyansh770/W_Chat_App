@@ -1,31 +1,32 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "../styles/global.css"
-import { io } from 'socket.io-client'
+
 /*
   on click con-user-pp a room should be created for the current user 
   and con-user and only these two should be able to chat in this room 
 */
 
+let users = []
+const Contacts = ({ socket, setPeople, setRoom, currRoom }) => {
 
-const Contacts = ({socket,setPeople,setRoom,currRoom}) => {
+  users = JSON.parse(localStorage?.getItem("users"))
 
+  const handlePeopleToTalk = (e) => {
 
-
-  const handlePeopleToTalk = (e)=>{
-
-    if(currRoom!=""){
-       socket.emit("leave_conversation",currRoom)
+    if (currRoom != "") {
+      socket.emit("leave_conversation", currRoom)
     }
 
     let user_name = e.target.innerHTML
 
-    setPeople (user_name)
+    setPeople(user_name)
 
-    const room = "W"+"_"+user_name
+    const room = "W" + "_" + user_name
 
-    socket.emit("createroom",room)
+    socket.emit("createroom", room)
     setRoom(room)
   }
+
 
   return (
     <>
@@ -39,32 +40,22 @@ const Contacts = ({socket,setPeople,setRoom,currRoom}) => {
           </div>
         </div>
         <div className="contacts">
-          <div className="con-user">
-            <div className="con-user-pp">
-            </div>
-            <div className="con-user-msg">
-              <h3 onClick={(e)=>handlePeopleToTalk(e)}>Joe Lagger</h3>
-              <p>Some random message just for testing purpose</p>
-            </div>
-          </div>
 
-          <div className="con-user">
-            <div className="con-user-pp">
-            </div>
-            <div className="con-user-msg">
-              <h3 onClick={(e)=>handlePeopleToTalk(e)}>John Cena</h3>
-              <p>Some random message just for testing purpose</p>
-            </div>
-          </div>
-
-          <div className="con-user">
-            <div className="con-user-pp">
-            </div>
-            <div className="con-user-msg">
-              <h3 onClick={(e)=>handlePeopleToTalk(e)}>Virat Kohli</h3>
-              <p>Some random message just for testing purpose</p>
-            </div>
-          </div>
+          {
+            users?.map((user, key) => {
+              return (
+                <div className="con-user" key={key}>
+                  <div className="con-user-pp">
+                    <img src={user.avatar_link} width="90%" height="80%" alt="user_avatar" />
+                  </div>
+                  <div className="con-user-msg">
+                    <h3 onClick={(e) => handlePeopleToTalk(e)}>{user.userName}</h3>
+                    <p>Some random message just for testing purpose</p>
+                  </div>
+                </div>
+              )
+            })
+          }
         </div>
       </div>
     </>

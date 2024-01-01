@@ -4,13 +4,13 @@ import { AiOutlineMessage } from "react-icons/ai";
 import { FaHouse } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
 
-const LeftMenu = () => {
+const LeftMenu = ({avatar}) => {
     return (
         <>
             <div className="left-menu">
                 <div className="upper-icons">
                     <div className="my-pp">
-                         <FaRegUser/>
+                         <img src={avatar} width="100%" height="80%" alt="user_avatar" />
                     </div>
                     <div className="my-messages">
                         <AiOutlineMessage />
