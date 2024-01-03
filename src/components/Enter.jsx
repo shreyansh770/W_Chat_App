@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import '../styles/Enter.css'; 
+import * as api from '../api/axios'
 
 const Enter = ({ userName, setUserName ,setAvatar}) => {
 
 
   const navigate = useNavigate()
-  const handleJoin = () => {
+  const handleJoin =  async () => {
 
     const options = {
       set: 'set1', // Different sets provide different styles of robots
@@ -20,16 +21,8 @@ const Enter = ({ userName, setUserName ,setAvatar}) => {
 
     setAvatar(avatar)
 
-    const allUsers = JSON.parse(localStorage.getItem("users")) || []
+    let res =  await api.enterUser({userName,avatar_link:avatar})
 
-    const new_User = {
-      userName,
-      avatar_link: avatar
-    }
-
-    allUsers.push(new_User)
-
-    localStorage.setItem("users", JSON.stringify(allUsers))
     navigate("/")
   };
 

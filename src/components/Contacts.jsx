@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import "../styles/global.css"
+import * as api from "../api/axios"
 
 /*
   on click con-user-pp a room should be created for the current user 
@@ -9,7 +10,16 @@ import "../styles/global.css"
 let users = []
 const Contacts = ({ socket, setPeople, setRoom, currRoom }) => {
 
-  users = JSON.parse(localStorage?.getItem("users"))
+  let getUsers = async ()=>{
+     let res = await api.getUser() 
+     users = res.data;
+  }
+
+  useEffect( ()=>{
+     getUsers()     
+     console.log(users);
+     
+  },[])
 
   const handlePeopleToTalk = (e) => {
 
